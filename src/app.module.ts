@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { BlogsModule } from './blogs/blogs.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
-import { User } from './users/entities/user.entity';
 
 @Module({
   imports: [
@@ -14,7 +13,8 @@ import { User } from './users/entities/user.entity';
       port: 5432,
       password: 'aashar',
       username: 'postgres',
-      entities: [User],
+      autoLoadEntities: true,
+      // entities: [User],
       database: 'nest_auth',
       synchronize: true,
       logging: true,
